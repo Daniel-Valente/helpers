@@ -92,3 +92,22 @@ const applyKeyMAppingToArray = ( array, keysMapping ) => {
 
     return newArray;
 };
+
+/**
+ * @description
+ * @param { Number } number 
+ * @returns { String }
+ */
+const generateRandomString = ( number ) => {
+    const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+    const charactersLength = characters.length;
+    let result = "";
+    let ch;
+    while (result.length < number){
+        ch = characters.charAt(Math.floor(Math.random() * charactersLength));
+        if (!result.includes(ch)){
+            result += ch;
+        }
+    }
+    return result;
+}
