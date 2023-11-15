@@ -111,3 +111,24 @@ const generateRandomString = ( number ) => {
     }
     return result;
 }
+/**
+ * @description Didivir en segmento una cadena de texto en base a un limite de caracteres deseados.
+ * @param { string } text Cadena de texto que se desea dividir en segmentos de texto con un máximo de  caracteres.
+ * @param { number } maximumLength Número máximo de caracteres deseado por segmento.
+ * @returns { Array } Segmentos generados por la cadena de texto.
+ */
+const segmentString = ( text, maximumLength ) => {
+    const segments = [];
+    while (text.length > maximumLength) {
+        let segment = text.substring(0, maximumLength);
+        const lastSpace = segment.lastIndexOf(' ');
+
+        if (lastSpace !== -1)
+            segment = segment.substring(0, lastSpace);
+
+        segments.push(segment.trim());
+        text = text.substring(segment.length).trim();
+    }
+    segments.push(text.trim());
+    return segments;
+};
